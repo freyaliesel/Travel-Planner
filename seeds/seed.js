@@ -13,9 +13,9 @@ const seedDatabase = async () => {
 
   // Create trips at random
   for (let i = 0; i < 10; i++) {
-    // Get a random traveller's `id`
+    // Get a random traveler's `id`
     const { id: randomTravelerId } = travelers[
-      Math.floor(Math.random() * travellers.length)
+      Math.floor(Math.random() * travelers.length)
     ];
 
     // Get a random location's `id`
@@ -23,14 +23,14 @@ const seedDatabase = async () => {
       Math.floor(Math.random() * locations.length)
     ];
 
-    // Create a new trip with random `trip_budget` and `traveller_amount` values, but with ids selected above
+    // Create a new trip with random `trip_budget` and `traveler_amount` values, but with ids selected above
     await Trip.create({
       trip_budget: (Math.random() * 10000 + 1000).toFixed(2),
-      traveller_amount: Math.floor(Math.random() * 10) + 1,
-      traveller_id: randomTravelerId,
+      traveler_amount: Math.floor(Math.random() * 10) + 1,
+      traveler_id: randomTravelerId,
       location_id: randomLocationId,
     }).catch((err) => {
-      // If there's an error, such as the same random pairing of `traveller.id` and `location.id` occurring and we get a constraint error, don't quit the Node process
+      // If there's an error, such as the same random pairing of `traveler.id` and `location.id` occurring and we get a constraint error, don't quit the Node process
       console.log(err);
     });
   }

@@ -3,7 +3,9 @@ const sequelize = require("./config/connection");
 
 
 // replace this with the models we actually need
-// const Book = require("./models/Book");
+// const Traveler = require("./models/traveler");
+// const Location = require("./models/location")
+// const Trip = require("./models/trip")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
